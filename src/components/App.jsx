@@ -13,8 +13,8 @@ const App = () => {
       <CssBaseline />
       {/* <NavBar /> */}
       <NavBar />
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
+      <main className={classes.appContent}>
+        <div className={classes.appToolbar} />
         <Switch>
           <Route exact path="/">
             <Movies />

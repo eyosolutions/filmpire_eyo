@@ -5,10 +5,10 @@ export default makeStyles(() => ({
     display: 'flex',
     height: '100%',
   },
-  toolbar: {
+  appToolbar: {
     height: '70px',
   },
-  content: {
+  appContent: {
     flexGrow: 1,
     padding: '2em',
   },
