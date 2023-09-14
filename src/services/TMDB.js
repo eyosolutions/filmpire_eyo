@@ -31,10 +31,35 @@ export const tmdbApi = createApi({
         return `movie/popular?page=${page}&api_key=${tmdbApiKey}`;
       },
     }),
+    // * Get a Movie
+    getMovie: builder.query({
+      query: (id) => `/movie/${id}?append_to_response=videos,credits&api_key=${tmdbApiKey}`,
+    }),
+    //* Get User Specific List
+    getList: builder.query({
+      query: ({ listName, accountId, sessionId, page }) => `/account/${accountId}/${listName}?api_key=${tmdbApiKey}&session_id=${sessionId}&page=${page}`,
+    }),
+    // * Get Recommendation Lists
+    getRecommendations: builder.query({
+      query: ({ list, movieId }) => `/movie/${movieId}/${list}?api_key=${tmdbApiKey}`,
+    }),
+    // Get Actor info assignment
+    getActorsDetails: builder.query({
+      query: (id) => `/person/${id}?api_key=${tmdbApiKey}`,
+    }),
+    // Get movies by actor id
+    getMoviesByActorId: builder.query({
+      query: ({ id, page }) => `/discover/movie?with_cast=${id}&page=${page}&api_key=${tmdbApiKey}`,
+    }),
   }),
 });
 
 export const {
   useGetGenresQuery,
   useGetMoviesQuery,
+  useGetMovieQuery,
+  useGetListQuery,
+  useGetRecommendationsQuery,
+  useGetActorsDetailsQuery,
+  useGetMoviesByActorIdQuery,
 } = tmdbApi;
