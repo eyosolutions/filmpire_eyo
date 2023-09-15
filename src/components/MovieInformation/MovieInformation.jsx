@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Typography, Grid, Button, ButtonGroup, Box, CircularProgress, UseMediaQuery, Rating, Dialog, DialogTitle } from '@mui/material';
+import { Modal, Typography, Grid, Button, ButtonGroup, Box, CircularProgress, Rating, Dialog, DialogTitle } from '@mui/material';
 import { Movie as MovieIcon, Theaters, Language, PlusOne, Favorite, FavoriteBorderOutlined, Remove, ArrowBack } from '@mui/icons-material';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,7 +20,7 @@ const MovieInformation = () => {
   const { data: favoriteMovies } = useGetListQuery({ listName: 'favorite/movies', accountId: user.id, sessionId: localStorage.getItem('sessionId'), page: 1 });
   const { data: watchlistMovies } = useGetListQuery({ listName: 'watchlist/movies', accountId: user.id, sessionId: localStorage.getItem('sessionId'), page: 1 });
   const classes = useStyles();
-  const { data: recommendations, isFetching: isRecommendationsFetching } = useGetRecommendationsQuery({ list: 'recommendations', movieId: id });
+  const { data: recommendations } = useGetRecommendationsQuery({ list: 'recommendations', movieId: id });
 
   const [isMovieFavorited, setIsMovieFavorited] = useState(false);
   const [isMovieWatchlisted, setIsMovieWatchlisted] = useState(false);
@@ -172,7 +172,7 @@ const MovieInformation = () => {
         ) : (
           <Dialog open={open} onClose={() => setOpen(false)}>
             <DialogTitle>Filmpire Alert!</DialogTitle>
-            <Typography style={{ padding: '0 20px 20px 20px' }} variant="subtitle1">This movie has no trailer!</Typography>
+            <Typography style={{ padding: '0 20px 20px 20px' }} variant="body2">This movie has no trailer!</Typography>
           </Dialog>
         )}
     </Grid>
