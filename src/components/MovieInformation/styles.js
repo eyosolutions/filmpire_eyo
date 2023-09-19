@@ -11,18 +11,24 @@ export default makeStyles((theme) => ({
     },
   },
   poster: {
+    display: 'block',
     borderRadius: '20px',
     boxShadow: '0.5em 1em 1em rgb(64, 64, 70)',
     width: '80%',
+    [theme.breakpoints.down('lg')]: {
+      margin: '0 auto',
+      marginBottom: '30px',
+    },
     [theme.breakpoints.down('md')]: {
       margin: '0 auto',
       width: '50%',
-      height: '350px',
+      height: 'auto',
+      marginBottom: '30px',
     },
     [theme.breakpoints.down('sm')]: {
       margin: '0 auto',
       width: '100%',
-      height: '350px',
+      height: 'auto',
       marginBottom: '30px',
     },
   },
@@ -59,7 +65,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     width: '100%',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       flexDirection: 'column',
     },
   },

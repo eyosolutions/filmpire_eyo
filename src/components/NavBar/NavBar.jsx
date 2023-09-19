@@ -97,11 +97,11 @@ const NavBar = () => {
               classes={{ paper: classes.drawerPaper }}
               ModalProps={{ keepMounted: true }}
             >
-              <Sidebar setMobileOpen={setMobileOpen} />
+              <Sidebar setMobileOpen={setMobileOpen} mobileOpen={mobileOpen} />
             </Drawer>
           ) : (
             <Drawer classes={{ paper: classes.drawerPaper }} variant="permanent" open>
-              <Sidebar setMobileOpen={setMobileOpen} />
+              <Sidebar setMobileOpen={setMobileOpen} mobileOpen={mobileOpen} />
             </Drawer>
           )}
         </nav>
